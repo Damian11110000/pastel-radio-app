@@ -17,7 +17,7 @@ Genera locuciones de radio con voz artificial usando Claude (generación de text
 ### 1. Clonar o descargar el proyecto
 
 ```bash
-git clone https://github.com/tu-usuario/pastel-radio-app.git
+git clone https://github.com/damian11110000/pastel-radio-app.git
 cd pastel-radio-app
 ```
 
