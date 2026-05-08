@@ -25,7 +25,7 @@ async function runPipeline() {
     try {
 
 
-        /*const response = await anthropic.messages.create({
+        const response = await anthropic.messages.create({
         model: "claude-sonnet-4-20250514",
         max_tokens: 300,
         system: [
@@ -76,10 +76,10 @@ async function runPipeline() {
 
         const saraTexto = response.content[0].text;
         const cacheTokens = response.usage.cache_read_input_tokens || 0;
-        const fueDesdeCache = cacheTokens > 0;*/
+        const fueDesdeCache = cacheTokens > 0;
 
    
-        const saraTexto = `Qué bonita mañana para arrancar desde Morelia — ocho y cuarto y ya con todo el ánimo. Luna Vidal nos trae "Mareas del Sur", una rola que te va a entrar suavecito pero te va a dejar con ganas de más. Órale, Roberto, esto va para ti.`
+        
 
         const VOCES = {
         nicole:  "piTKgcLEGmPE4e6mEKli",  // Nicole — suave, cercana
@@ -90,7 +90,7 @@ async function runPipeline() {
 
 
         console.log("\n[Texto generado]:", saraTexto);
-       // console.log("[Cache tokens]:", cacheTokens);
+        console.log("[Cache tokens]:", cacheTokens);
 
         const audioResponse = await elevenlabs.textToSpeech.convert(VOCES.nicole, {
             text: saraTexto,
@@ -112,8 +112,8 @@ async function runPipeline() {
 
         console.log("\n=== PASTEL RADIO IA — PIPELINE TEST ===");
         console.log(`Texto generado: ${saraTexto}`);
-        //console.log(`Cache tokens usados: ${cacheTokens}`);
-        //console.log(`Fue desde cache: ${fueDesdeCache}`);
+        console.log(`Cache tokens usados: ${cacheTokens}`);
+        console.log(`Fue desde cache: ${fueDesdeCache}`);
         console.log(`Audio guardado: ${outputPath}`);
         console.log(`Duración aproximada: ${duracionEstimada} segundos`);
         console.log("Pipeline completado exitosamente.\n");
